@@ -1,15 +1,27 @@
-import std.stdio, std.math;
+import std.stdio, std.math,std.conv;
 
 bool isPrime(int n){
 	if(n%2==0) return false;
-	for(int i=3;i<sqrt(cast(float) n)+1;i++){
+	for(int i=3;i<sqrt(cast(float) n)+1;i+=2){
 		if(n%i==0) return false;
 	}
 	return true;
 }
 
-void main(){
-	for(int i=1;i<100;i++){
-		if(isPrime(i)) writeln(i);
+int main(char[][] args){
+	if(args.length<2){
+		writeln("Requires one argument, remember target");
+		return 0;
 	}
+	int sum=0,target=to!(int)(args[1]);
+
+	for(int i=2;i<target;i++){
+		if(isPrime(i)){
+			sum++;
+			//writeln(i);
+		}
+	}
+	writeln(sum);
+
+	return 0;
 }
