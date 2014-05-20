@@ -1,4 +1,4 @@
-
+#! /usr/bin/env node
 function isPrime(n){
 	if(n%2==0) return false;
 	for(var i=3;i<Math.sqrt(n)+1;i++){
