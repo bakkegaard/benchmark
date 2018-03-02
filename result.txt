@@ -1,7 +1,7 @@
-run with $ time [program] 1000000 (in seconds):
+run with $ time [program] 10000000 (in seconds and real):
 
-C++			0.351 
-D				0.344 
-Java			0.290 
-Javascript	0.341 
-Python		3.938
+C++         2,283 (clang++ -O3)
+D           3,882 (ldc -O3)
+Java        3,633 (javac)
+Javascript  8,988 (node)
+Python      1:22,290 (python3)
