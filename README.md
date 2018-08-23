@@ -1,7 +1,7 @@
 # Benchmark
 A simple benchmark for comparing languages "raw" speed. A simple isPrime
 function is implemented in each language and the program runs a for loop from 2
-to the first argument of the program (n) and checks for every loop weather the
+to the first argument of the program (N) and checks for every loop weather the
 i-th iteration is a prime. It then outputs the total number of primes from 2 to
 N.
 
