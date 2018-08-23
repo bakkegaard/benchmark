@@ -1,9 +1,9 @@
 # Benchmark
 A simple benchmark for comparing languages "raw" speed. A simple isPrime
-function is implemented in each language and the program runs a forloop from 2
-to the first argument (n) of the function and checks for every loop weather the
-loop number is a prime. It sums the prime and outputs the total number of
-primes from 2 to N.
+function is implemented in each language and the program runs a for loop from 2
+to the first argument of the program (n) and checks for every loop weather the
+i-th iteration is a prime. It then outputs the total number of primes from 2 to
+N.
 
 run with $ time [program] 10000000 (in seconds and real):
 
