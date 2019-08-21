@@ -92,10 +92,10 @@ func (a ByTime) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ByTime) Less(i, j int) bool { return a[i].runtime < a[j].runtime }
 
 func main() {
-	var target, result int
+	var target, result int64
 
-	flag.IntVar(&target, "target", 100, "Tell program to run from 2 to target")
-	flag.IntVar(&result, "result", 23, "What is the correct result")
+	flag.Int64Var(&target, "target", 100, "Tell program to run from 2 to target")
+	flag.Int64Var(&result, "result", 23, "What is the correct result")
 	flag.Parse()
 
 	languages := []Language{java, python, python2, cplusplus, cplusplus2, d, rust, node, Go, cSharp}
@@ -104,7 +104,7 @@ func main() {
 
 	for _, language := range languages {
 		language.compileProgram()
-		programTime := language.runProgram(int64(target), int64(result))
+		programTime := language.runProgram(target, result)
 
 		times =  append(times,Result{language.name,unixNano(programTime)})
 	}
