@@ -6,6 +6,7 @@ import (
 	"strings"
 	"os/exec"
 	"strconv"
+	"flag"
 )
 
 type Language struct{
@@ -73,15 +74,17 @@ var cSharp = Language{"C# (mcs)","mcs prime.cs", "./prime.exe"}
 
 
 func main(){
+	var target,result int
 
-	var target int64 = 10000000
-	var result int64 = 24
+	flag.IntVar(&target, "target", 100, "Tell program to run from 2 to target")
+	flag.IntVar(&result, "result", 23, "What is the correct result")
+	flag.Parse()
 
 	languages := []Language{java, python, python2, cplusplus, cplusplus2, d, rust, node, Go, cSharp}
 
 	for _, language := range languages {
 		language.compileProgram()
-		programTime := language.runProgram(target, result)
+		programTime := language.runProgram(int64(target), int64(result))
 		timeString := fmt.Sprintf("%d.%d",programTime/1000000000,(programTime%1000000000)/1000000)
 		fmt.Printf("%s: %s\n", language.name, timeString)
 	}
