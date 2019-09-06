@@ -44,7 +44,9 @@ func runString(s string) string {
 	cmd := exec.Command(command[0], args...)
 	out, err := cmd.Output()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error when trying to run %s",s)
+		fmt.Println(out)
+		panic(err)
 	}
 
 	output := string(out)
