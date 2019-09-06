@@ -72,9 +72,7 @@ func (language Language) runProgram(target int64, correctResult int64) int64 {
 	return programTime
 }
 
-var java = Language{"Java",
-	"javac prime.java",
-	"java prime"}
+var java = Language{"Java", "javac prime.java", "java prime"}
 
 var python = Language{"Python", "", "python prime.py"}
 var python2 = Language{"Python (pypy)", "", "pypy prime.py"}
