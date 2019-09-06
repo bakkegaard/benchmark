@@ -86,11 +86,6 @@ var node = Language{"Node", "", "node prime.js"}
 var Go = Language{"Go", "go build -o primeGo prime.go", "./primeGo"}
 var cSharp = Language{"C# (mcs)", "mcs prime.cs", "./prime.exe"}
 
-type ByTime []Result
-func (a ByTime) Len() int           { return len(a) }
-func (a ByTime) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a ByTime) Less(i, j int) bool { return a[i].runtime < a[j].runtime }
-
 func main() {
 	var target, result int64
 
@@ -109,14 +104,10 @@ func main() {
 		times =  append(times,Result{language.name,unixNano(programTime)})
 	}
 
-	/*
-	Works from Go 1.8
-	sort.Slice(times,func(i, j unixNano) bool {
-		return i < j
+	sort.Slice(times ,func(i, j int) bool {
+		return times[i].runtime < times[j].runtime
 	})
-	*/
 
-	sort.Sort(ByTime(times))
 
 	for _, result := range times {
 		fmt.Printf("%s: %s\n", result.language, result.runtime)
