@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 	"os/exec"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
-	"sort"
 )
 
 type Language struct {
@@ -44,7 +44,7 @@ func runString(s string) string {
 	cmd := exec.Command(command[0], args...)
 	out, err := cmd.Output()
 	if err != nil {
-		fmt.Println("Error when trying to run %s",s)
+		fmt.Println("Error when trying to run %s", s)
 		fmt.Println(out)
 		panic(err)
 	}
@@ -95,19 +95,18 @@ func main() {
 
 	languages := []Language{java, python, python2, cplusplus, cplusplus2, d, rust, node, Go, cSharp}
 
-	times := make([]Result,0)
+	times := make([]Result, 0)
 
 	for _, language := range languages {
 		language.compileProgram()
 		programTime := language.runProgram(target, result)
 
-		times =  append(times,Result{language.name,unixNano(programTime)})
+		times = append(times, Result{language.name, unixNano(programTime)})
 	}
 
-	sort.Slice(times ,func(i, j int) bool {
+	sort.Slice(times, func(i, j int) bool {
 		return times[i].runtime < times[j].runtime
 	})
-
 
 	for _, result := range times {
 		fmt.Printf("%s: %s\n", result.language, result.runtime)
