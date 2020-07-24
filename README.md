@@ -7,16 +7,16 @@ N.
 
 run with $ time [program] 10000000 (in seconds and real):
 
-Programming language | Runtime (compiler instrictions)
--------------------- | -------------------------------
-C++ (gcc)            | 2.251
-Rust                 | 3.220
-Java                 | 3.552
-D (ldc)              | 3.823
-Node                 | 4.712
-C++ (clang)          | 5.587
-Go                   | 8.163
-C# (mcs)             | 9.802
-Python (pypy)        | 11.830
-Python               | 50.530
-Ruby                 | 102.693
+Programming language (compiler) | Runtime 
+------------------------------- | --------
+C++ (gcc)           				  | 2.251
+Rust                				  | 3.220
+Java                				  | 3.552
+D (ldc)             				  | 3.823
+Node                				  | 4.712
+C++ (clang)         				  | 5.587
+Go                  				  | 8.163
+C# (mcs)            				  | 9.802
+Python (pypy)       				  | 11.830
+Python              				  | 50.530
+Ruby                				  | 102.693
