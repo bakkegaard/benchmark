@@ -6,6 +6,8 @@ if(process.argv.length<3){
 }
 
 function isPrime(n){
+	if(i<2) return false;
+	if(i==2) return true;
 	if(n%2==0) return false;
 	for(var i=3;i<Math.sqrt(n)+1;i+=2){
 		if(n%i==0) return false;

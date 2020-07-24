@@ -1,13 +1,17 @@
 #! /usr/bin/env python2
 import sys
+import math
 
 if len(sys.argv)<2:
-    print "Requires one argument, remember target"
+    print("Requires one argument, remember target")
     sys.exit()
 
-import math
 def isPrime(n):
-    if n%2==0:
+    if n<2:
+        return False
+    elif n==2:
+        return True
+    elif n%2==0:
         return False
     else:
         for e in range(3,int(math.sqrt(n)+1),2):
@@ -21,4 +25,4 @@ for i in range(2,target):
     if isPrime(i):
         s+=1
         #print (i)
-print s
+print(s)

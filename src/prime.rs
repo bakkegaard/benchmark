@@ -2,6 +2,12 @@ use std::env;
 use std::f32;
 
 fn is_prime(n:u32)->bool{
+    if n<2 {
+        return false;
+    }
+    if n==2 {
+        return true;
+    }
     if n%2==0 {
         return false;
     }
