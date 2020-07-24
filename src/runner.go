@@ -85,6 +85,7 @@ var rust = Language{"Rust", "rustc -C opt-level=2 -o primeRust prime.rs", "./pri
 var node = Language{"Node", "", "node prime.js"}
 var Go = Language{"Go", "go build -o primeGo prime.go", "./primeGo"}
 var cSharp = Language{"C# (mcs)", "mcs prime.cs", "./prime.exe"}
+var ruby = Language{"Ruby", "", "ruby prime.rb"}
 
 func main() {
 	var target, result int64
@@ -93,7 +94,7 @@ func main() {
 	flag.Int64Var(&result, "result", 23, "What is the correct result")
 	flag.Parse()
 
-	languages := []Language{java, python, python2, cplusplus, cplusplus2, d, rust, node, Go, cSharp}
+	languages := []Language{java, python, python2, cplusplus, cplusplus2, d, rust, node, Go, cSharp, ruby}
 
 	times := make([]Result, 0)
 
